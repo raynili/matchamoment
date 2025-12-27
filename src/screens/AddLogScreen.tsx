@@ -122,7 +122,7 @@ export const AddLogScreen = ({ navigation, route }: Props) => {
             
             <Input
               label="Matcha Name"
-              placeholder="e.g., Ceremonial Grade"
+              placeholder="e.g. Ceremonial Grade"
               value={name}
               onChangeText={setName}
               required
@@ -131,14 +131,14 @@ export const AddLogScreen = ({ navigation, route }: Props) => {
 
             <Input
               label="Brand"
-              placeholder="e.g., Ippodo"
+              placeholder="e.g. Ippodo"
               value={brand}
               onChangeText={setBrand}
             />
 
             <Input
               label="Origin"
-              placeholder="e.g., Uji, Japan"
+              placeholder="e.g. Uji, Japan"
               value={origin}
               onChangeText={setOrigin}
             />
@@ -190,7 +190,7 @@ export const AddLogScreen = ({ navigation, route }: Props) => {
         
         <Input
           label="Matcha Powder"
-          placeholder="e.g., 2"
+          placeholder="e.g. 2"
           value={powderGrams}
           onChangeText={setPowderGrams}
           keyboardType="decimal-pad"
@@ -201,7 +201,7 @@ export const AddLogScreen = ({ navigation, route }: Props) => {
 
         <Input
           label="Water"
-          placeholder="e.g., 60"
+          placeholder="e.g. 60"
           value={waterMl}
           onChangeText={setWaterMl}
           keyboardType="decimal-pad"
@@ -210,7 +210,7 @@ export const AddLogScreen = ({ navigation, route }: Props) => {
 
         <Input
           label="Milk"
-          placeholder="e.g., 200"
+          placeholder="e.g. 200"
           value={milkMl}
           onChangeText={setMilkMl}
           keyboardType="decimal-pad"
