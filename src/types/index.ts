@@ -20,4 +20,8 @@ export interface MatchaLog {
   milkMl?: number;
   
   createdAt: string;
+
+  // Photos
+  canPhoto?: string;
+  drinkPhotos?: string[];
 }
