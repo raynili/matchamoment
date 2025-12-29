@@ -27,4 +27,7 @@ export interface MatchaLog {
   // Photos
   canPhoto?: string;
   drinkPhotos?: string[];
+
+  // Repurchase?
+  wouldRepurchase?: boolean;
 }

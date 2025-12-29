@@ -12,7 +12,12 @@ import { useMatcha } from "../context/MatchaContext";
 import { FlavorRating } from "../components/FlavourRating";
 import { BrewingRatio } from "../components/BrewingRatio";
 import { Card } from "../components/ui/Card";
-import { PencilIcon, TrashIcon } from "phosphor-react-native";
+import {
+  PencilIcon,
+  TrashIcon,
+  CheckSquareIcon,
+  SquareIcon,
+} from "phosphor-react-native";
 import { Image, ScrollView as RNScrollView } from "react-native";
 import { format } from "date-fns";
 
@@ -198,6 +203,35 @@ export const LogDetailScreen = ({ navigation, route }: Props) => {
           </Card>
         )}
 
+        {/* Repurchase */}
+        {log.wouldRepurchase !== undefined && (
+          <Card style={styles.section}>
+            <View style={styles.repurchaseContainer}>
+              {log.wouldRepurchase ? (
+                <>
+                  <CheckSquareIcon
+                    size={24}
+                    color={colors.matcha[500]}
+                    weight="fill"
+                  />
+                  <Text style={styles.repurchaseText}>Would repurchase ✓</Text>
+                </>
+              ) : (
+                <>
+                  <SquareIcon
+                    size={24}
+                    color={colors.gray[400]}
+                    weight="regular"
+                  />
+                  <Text style={styles.repurchaseTextNo}>
+                    Would not repurchase
+                  </Text>
+                </>
+              )}
+            </View>
+          </Card>
+        )}
+
         {/* Brewing Ratio */}
         <View style={styles.section}>
           <BrewingRatio
@@ -362,5 +396,21 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 12,
     backgroundColor: colors.gray[200],
+  },
+  repurchaseContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+    paddingVertical: 8,
+  },
+  repurchaseText: {
+    fontSize: 16,
+    color: colors.matcha[700],
+    fontWeight: "600",
+  },
+  repurchaseTextNo: {
+    fontSize: 16,
+    color: colors.gray[600],
+    fontWeight: "500",
   },
 });

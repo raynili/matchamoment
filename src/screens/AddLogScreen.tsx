@@ -13,7 +13,7 @@ import { useMatcha } from "../context/MatchaContext";
 import { Input } from "../components/ui/Input";
 import { StarRating } from "../components/ui/StarRating";
 import { Button } from "../components/ui/Button";
-
+import { Checkbox } from "../components/ui/Checkbox";
 import { ImagePickerComponent } from "../components/ImagePicker";
 import { MultipleImagePicker } from "../components/MultipleImagePicker";
 import { CurrencyPicker } from "../components/ui/CurrencyPicker";
@@ -51,6 +51,7 @@ export const AddLogScreen = ({ navigation, route }: Props) => {
   const [milkMl, setMilkMl] = useState("");
   const [canPhoto, setCanPhoto] = useState<string | undefined>(undefined);
   const [drinkPhotos, setDrinkPhotos] = useState<string[]>([]);
+  const [wouldRepurchase, setWouldRepurchase] = useState(false);
 
   // Errors
   const [nameError, setNameError] = useState("");
@@ -76,6 +77,7 @@ export const AddLogScreen = ({ navigation, route }: Props) => {
         setMilkMl(log.milkMl?.toString() || "");
         setCanPhoto(log.canPhoto);
         setDrinkPhotos(log.drinkPhotos || []);
+        setWouldRepurchase(log.wouldRepurchase || false);
       }
     }
   }, [isEditing, logId, logs]);
@@ -128,6 +130,7 @@ export const AddLogScreen = ({ navigation, route }: Props) => {
       milkMl: milkMl.trim() ? parseFloat(milkMl) : undefined,
       canPhoto,
       drinkPhotos: drinkPhotos.length > 0 ? drinkPhotos : undefined,
+      wouldRepurchase,
     };
 
     if (isEditing && logId) {
@@ -293,6 +296,15 @@ export const AddLogScreen = ({ navigation, route }: Props) => {
               keyboardType="decimal-pad"
             />
             <Text style={styles.hint}>In milliliters (optional)</Text>
+          </View>
+
+          {/* Repurchase Section */}
+          <View style={styles.section}>
+            <Checkbox
+              label="Would you repurchase this matcha?"
+              checked={wouldRepurchase}
+              onChange={setWouldRepurchase}
+            />
           </View>
 
           {/* Save Button */}
