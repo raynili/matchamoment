@@ -3,8 +3,11 @@ export interface MatchaLog {
 
   // Matcha identity
   name: string;
-  brand?: string;
+  brand: string;
   origin?: string;
+  priceAmount?: number;
+  priceCurrency?: "USD" | "JPY";
+  quantityGrams?: number;
 
   // Flavour Ratings
   umami: number;
@@ -18,7 +21,7 @@ export interface MatchaLog {
   powderGrams: number;
   waterMl?: number;
   milkMl?: number;
-  
+
   createdAt: string;
 
   // Photos
